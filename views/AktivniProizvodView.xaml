@@ -1,0 +1,163 @@
+﻿<UserControl x:Class="WpfMojaApp1.views.AktivniProizvodView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfMojaApp1.views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:res="clr-namespace:WpfMojaApp1.resources"
+
+             mc:Ignorable="d">
+    <Grid Margin="20">
+      
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <!-- Tabela zauzima samo onoliko koliko joj treba prostor -->
+            <RowDefinition Height="Auto" />
+            <!-- Forma zauzima koliko joj treba -->
+        </Grid.RowDefinitions>
+
+        <!-- TABELA -->
+        <DataGrid Grid.Row="0"
+                  ItemsSource="{Binding Proizvodi}"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  materialDesign:DataGridAssist.CellPadding="10"
+                  Style="{StaticResource MaterialDesignDataGrid}">
+            <DataGrid.Columns>
+                
+                <!-- Šifra -->
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{x:Static res:Strings.Sifra}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding SifraProizvoda}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <!-- Naziv -->
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{x:Static res:Strings.Naziv}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding NazivProizvoda}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <!-- Vrsta drveta -->
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{x:Static res:Strings.VrstaDrveta}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding VrstaDrveta}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <!--<DataGridTextColumn Header="Cijena" Binding="{Binding CijenaProizvoda}" /> -->
+                <!-- Cijena -->
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{x:Static res:Strings.Cijena}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding CijenaProizvoda}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <!-- Dugme za uklanjanje -->
+                <DataGridTemplateColumn Header="">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="{x:Static res:Strings.Ukloni}" 
+                                    Click="UkloniProizvod_Click"
+                                    Tag="{Binding}" />
+                                <Button Content="{x:Static res:Strings.IzmijeniCijenu}" 
+                                     Click="IzmijeniCijenu_Click"
+                                     Tag="{Binding}"
+                                     Margin="5,0,0,0" />
+                            </StackPanel>
+
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+            
+        </DataGrid>
+        <!--Stranicna kontrola-->
+        <StackPanel Grid.Row="1"
+            Orientation="Horizontal"
+            HorizontalAlignment="Right"
+            Margin="0,10,0,0">
+            <Button Content="{x:Static res:Strings.Prethodna}" Click="Prethodna_Click"/>
+            <TextBlock Text="{Binding CurrentPage}" Margin="10"/>
+            <Button Content="{x:Static res:Strings.Sledeca}" Click="Sledeca_Click"/>
+
+
+        </StackPanel>
+
+
+        <!-- FORMA ZA DODAVANJE -->
+        <StackPanel Grid.Row="1"
+                    Orientation="Horizontal"
+                    Margin="0,20,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top">
+            <!--Vrsta proizvda -->
+            <ComboBox x:Name="cmbVrstaProizvoda"
+                      Width="150"
+                      materialDesign:HintAssist.Hint="{x:Static res:Strings.VrstaProizvoda}"
+                      Margin="0,0,10,0"
+                      DisplayMemberPath="naziv"
+                      ItemsSource="{Binding ProizvodiOdDrveta}"
+                      SelectedItem="{Binding SelectedProizvod, Mode=TwoWay}" 
+                      >
+                      
+            </ComboBox>
+            
+            <!--Vrsta drveta -->
+            <ComboBox x:Name="cmbVrstaDrveta"
+                      Width="150"
+                      materialDesign:HintAssist.Hint="{x:Static res:Strings.VrstaDrveta}"
+                      Margin="0,0,10,0"
+                      DisplayMemberPath="vrsta"
+                      ItemsSource="{Binding VrsteDrveta}"
+                      SelectedItem="{Binding SelectedDrvo, Mode=TwoWay}"
+                      >
+                      
+            </ComboBox>
+            <!--Cijena -->
+            <TextBox x:Name="txtCijena"
+                     Width="100"
+                     materialDesign:HintAssist.Hint="{x:Static res:Strings.Cijena}"
+                     Margin="0,0,10,0"
+                     PreviewTextInput="txtCijena_PreviewTextInput"
+                      DataObject.Pasting="txtCijena_Pasting"
+                     />
+
+         <!--   <Button Content="Dodaj proizvod" Click="DodajProizvod_Click" />  -->
+            <Button Content="{x:Static res:Strings.DodajProizvod}" Click="DodajProizvod_Click" />
+
+        </StackPanel>
+    </Grid>
+</UserControl>

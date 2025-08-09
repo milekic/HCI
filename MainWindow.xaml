@@ -1,0 +1,55 @@
+﻿<Window x:Class="WpfMojaApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfMojaApp1"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:views="clr-namespace:WpfMojaApp1.views"
+        xmlns:res="clr-namespace:WpfMojaApp1.resources"
+
+        mc:Ignorable="d"
+        Title="Sistem za proizvodnju drvene gradje" Height="450" Width="800">
+
+    <DockPanel>
+        <!-- HEADER MENI -->
+        <Grid DockPanel.Dock="Top" Background="#EEE" Margin="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                
+            </Grid.ColumnDefinitions>
+
+            <!-- Meni dugmad, lijevo -->
+            <StackPanel Orientation="Horizontal" Grid.Column="0" VerticalAlignment="Center" Margin="5">
+                <Button Content="{x:Static res:Strings.AktivniProizvodi}"
+                        Margin="5" 
+                        Click="PrikaziAktivneProizvode" />
+                <Button Content="{x:Static res:Strings.PregledRacuna}"
+                        Margin="5" 
+                        Click="PrikaziRacune" />
+                <Button Content="{x:Static res:Strings.Narudzbe}"
+                        Margin="5" 
+                        Click="PrikaziNarudzbe" />
+                
+                <!-- Možeš dodati i ostala dugmad za meni -->
+            </StackPanel>
+
+            <!-- Dugmad za jezik, desno -->
+            <StackPanel Orientation="Horizontal" Grid.Column="1" VerticalAlignment="Center" Margin="5">
+                <Button Content="Srp" Width="70" Margin="5,0" Click="ChangeToSerbian_Click" />
+                <Button Content="Eng" Width="70" Margin="5,0" Click="ChangeToEnglish_Click" />
+                <!--
+                <Button Content="Light" Width="70" Margin="5,0" Click="SetLightTheme_Click" />
+                <Button Content="Dark" Width="70" Margin="5,0" Click="SetDarkTheme_Click" /> 
+                <Button Content="Blue" Width="70" Margin="5,0" Click="SetBlueTheme_Click" /> 
+                 -->
+            </StackPanel>
+        </Grid>
+
+        <!-- MJESTO ZA PRIKAZ SADRŽAJA -->
+        <ContentControl x:Name="MainContentControl" Margin="10"/>
+    </DockPanel>
+
+
+</Window>
