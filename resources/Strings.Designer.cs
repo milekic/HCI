@@ -187,6 +187,15 @@ namespace WpfMojaApp1.resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Odjavi se.
+        /// </summary>
+        public static string OdjaviSe {
+            get {
+                return ResourceManager.GetString("OdjaviSe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Pregled racuna.
         /// </summary>
         public static string PregledRacuna {

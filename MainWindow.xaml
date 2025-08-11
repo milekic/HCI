@@ -22,13 +22,16 @@
 
             <!-- Meni dugmad, lijevo -->
             <StackPanel Orientation="Horizontal" Grid.Column="0" VerticalAlignment="Center" Margin="5">
-                <Button Content="{x:Static res:Strings.AktivniProizvodi}"
+                <Button x:Name="buttonAktivniProizvodi"
+                        Content="{x:Static res:Strings.AktivniProizvodi}"
                         Margin="5" 
                         Click="PrikaziAktivneProizvode" />
-                <Button Content="{x:Static res:Strings.PregledRacuna}"
+                <Button x:Name="buttonPregledRacuna"
+                        Content="{x:Static res:Strings.PregledRacuna}"
                         Margin="5" 
                         Click="PrikaziRacune" />
-                <Button Content="{x:Static res:Strings.Narudzbe}"
+                <Button x:Name="buttonNarudzbe"
+                        Content="{x:Static res:Strings.Narudzbe}"
                         Margin="5" 
                         Click="PrikaziNarudzbe" />
                 
@@ -39,6 +42,7 @@
             <StackPanel Orientation="Horizontal" Grid.Column="1" VerticalAlignment="Center" Margin="5">
                 <Button Content="Srp" Width="70" Margin="5,0" Click="ChangeToSerbian_Click" />
                 <Button Content="Eng" Width="70" Margin="5,0" Click="ChangeToEnglish_Click" />
+                <Button Content="{x:Static res:Strings.OdjaviSe}" Width="70" Margin="5,0" Click="OdjaviSe_Click" />
                 <!--
                 <Button Content="Light" Width="70" Margin="5,0" Click="SetLightTheme_Click" />
                 <Button Content="Dark" Width="70" Margin="5,0" Click="SetDarkTheme_Click" /> 

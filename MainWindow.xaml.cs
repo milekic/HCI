@@ -23,54 +23,33 @@ namespace WpfMojaApp1
         public MainWindow()
         {
             InitializeComponent();
-            //LoadUserSettings();
-        }
 
-       // private readonly string settingsFile = "userSettings.txt";
+            //prijava
+            var login = new LoginWindow();
+            bool? rezultat = login.ShowDialog();
 
-        /*
-        private void ApplyTheme(string themeFile)
-        {
-            
-            var dictionaries = Application.Current.Resources.MergedDictionaries;
-            dictionaries.Clear();
-
-            
-            var uri = new Uri($"/Themes/{themeFile}", UriKind.Relative);
-            var resourceDict = new ResourceDictionary() { Source = uri };
-            dictionaries.Add(resourceDict);
-
-            
-            SaveUserSettings(themeFile);
-        }
-
-        private void SaveUserSettings(string themeFile)
-        {
-            try
+            if (rezultat == true)
             {
-                File.WriteAllText(settingsFile, themeFile);
-            }
-            catch
-            {
-                // TODO
-            }
-        }
+                // Uspješna prijava - dohvati tip korisnika
+                var tip = login.TipKorisnika;
 
-        private void LoadUserSettings()
-        {
-            if (File.Exists(settingsFile))
-            {
-                var themeFile = File.ReadAllText(settingsFile);
-                ApplyTheme(themeFile);
+                if (tip == TipKorisnika.Menadzer)
+                {
+                    PrikaziSveOpcije();
+                }
+                else if (tip == TipKorisnika.Radnik)
+                {
+                    PrikaziSamoPregledRacuna();
+                }
             }
             else
             {
-                // po defaultu LightTheme
-                ApplyTheme("LightTheme.xaml");
+                // Ako korisnik otkaže prijavu ili nije uspješan login, zatvori aplikaciju
+                Application.Current.Shutdown();
             }
         }
 
-       */
+      
 
         private void PrikaziAktivneProizvode(object sender, RoutedEventArgs e)
         {
@@ -97,7 +76,60 @@ namespace WpfMojaApp1
             helpers.ResourceHelper.ChangeCulture("en");
         }
 
-        
+
+        // Prikaži sva tri dugmeta za menadžera
+        private void PrikaziSveOpcije()
+        {
+            buttonAktivniProizvodi.Visibility = Visibility.Visible;
+            buttonPregledRacuna.Visibility = Visibility.Visible;
+            buttonNarudzbe.Visibility = Visibility.Visible;
+        }
+
+        // Prikaži samo dugme "Pregled računa" za radnika, ostala sakrij
+        private void PrikaziSamoPregledRacuna()
+        {
+            buttonAktivniProizvodi.Visibility = Visibility.Collapsed;
+            buttonNarudzbe.Visibility = Visibility.Collapsed;
+            buttonPregledRacuna.Visibility = Visibility.Visible;
+        }
+
+        private void OdjaviSe_Click(object sender, RoutedEventArgs e)
+        {
+            // Sakrij glavni prozor
+            this.Hide();
+
+            // Prikaži dijalog za prijavu ponovo
+            var login = new LoginWindow();
+            bool? rezultat = login.ShowDialog();
+
+            if (rezultat == true)
+            {
+                // Prijava uspješna, prikaži dugmad prema tipu korisnika
+                var tip = login.TipKorisnika;
+
+                if (tip == TipKorisnika.Menadzer)
+                {
+                    PrikaziSveOpcije();
+                }
+                else if (tip == TipKorisnika.Radnik)
+                {
+                    PrikaziSamoPregledRacuna();
+                }
+
+                // Očisti sadržaj (po želji)
+                MainContentControl.Content = null;
+
+                // Prikaži glavni prozor opet
+                this.Show();
+            }
+            else
+            {
+                // Ako korisnik otkaže prijavu - zatvori aplikaciju
+                Application.Current.Shutdown();
+            }
+        }
+
+
 
 
 

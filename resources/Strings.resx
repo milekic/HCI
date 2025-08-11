@@ -159,6 +159,9 @@
   <data name="OcistiFilter" xml:space="preserve">
     <value>Očisti filter</value>
   </data>
+  <data name="OdjaviSe" xml:space="preserve">
+    <value>Odjavi se</value>
+  </data>
   <data name="PregledRacuna" xml:space="preserve">
     <value>Pregled racuna</value>
   </data>

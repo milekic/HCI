@@ -153,6 +153,9 @@
   <data name="OcistiFilter" xml:space="preserve">
     <value>Clear Filter</value>
   </data>
+  <data name="OdjaviSe" xml:space="preserve">
+    <value>Log out</value>
+  </data>
   <data name="PregledRacuna" xml:space="preserve">
     <value>Acount review</value>
   </data>

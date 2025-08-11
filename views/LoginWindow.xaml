@@ -1,0 +1,30 @@
+﻿<Window x:Class="WpfMojaApp1.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Prijava" Height="200" Width="300"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Labela i TextBox za ime -->
+        <Label Grid.Row="0" Grid.Column="0" Content="Ime:" VerticalAlignment="Center" Margin="5"/>
+        <TextBox x:Name="txtIme" Grid.Row="0" Grid.Column="1" Margin="5"/>
+
+        <!-- Labela i TextBox za JMB -->
+        <Label Grid.Row="1" Grid.Column="0" Content="JMB:" VerticalAlignment="Center" Margin="5"/>
+        <TextBox x:Name="txtJmb" Grid.Row="1" Grid.Column="1" Margin="5"/>
+
+        <!-- Dugme za prijavu -->
+        <Button Grid.Row="2" Grid.ColumnSpan="2" Content="Prijavi se" Margin="5" Padding="5"
+                Click="PrijaviSe_Click" />
+    </Grid>
+</Window>
