@@ -141,6 +141,17 @@ namespace WpfMojaApp1
                 aktivniProizvodView.UpdateLanguage();
             }
 
+            if (MainContentControl.Content is NarudzbaView narudzbaView)
+            {
+                narudzbaView.UpdateLanguage();
+            }
+
+            if (MainContentControl.Content is RacuniView racuniView)
+            {
+                racuniView.UpdateLanguage();
+            }
+
+
             // ...i ostala dugmad i kontrole koje koriste resurse za tekst
         }
 

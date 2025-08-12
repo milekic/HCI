@@ -15,45 +15,48 @@
            
         </Grid.RowDefinitions>
 
-        
-        <DataGrid Grid.Row="0" ItemsSource="{Binding Narudzbe}"
-                  AutoGenerateColumns="False"
-                  CanUserAddRows="False"
-                  IsReadOnly="True"
-                  Margin="0 0 0 10">
+
+        <DataGrid x:Name="dataGridNarudzbe"
+          Grid.Row="0"
+          ItemsSource="{Binding Narudzbe}"
+          AutoGenerateColumns="False"
+          CanUserAddRows="False"
+          IsReadOnly="True"
+          Margin="0 0 0 10">
             <DataGrid.Columns>
-                <!--<DataGridTextColumn Header="ID" Binding="{Binding IdNarudzba}" Width="Auto"/> -->
-                <DataGridTextColumn Header="{x:Static res:Strings.Datum}" Binding="{Binding Datum, StringFormat=\{0:yyyy-MM-dd\}}"  Width="*"/>
+                <DataGridTextColumn Header="{x:Static res:Strings.Datum}" Binding="{Binding Datum, StringFormat=\{0:yyyy-MM-dd\}}" Width="*"/>
                 <DataGridTextColumn Header="{x:Static res:Strings.Dobavljac}" Binding="{Binding DobavljacNazivFirme}" Width="*"/>
                 <DataGridTextColumn Header="{x:Static res:Strings.Menadzer}" Binding="{Binding MenadzerRadnikJmb}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
 
+
         <!-- Forma za dodavanje nove narudžbe -->
         <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" >
 
             <!-- Datum (automatski popunjen trenutnim datumom) -->
-            <Label Content="{x:Static res:Strings.Datum}" VerticalAlignment="Center"/>
+            <Label x:Name="lblDatum" VerticalAlignment="Center"/>
             <TextBox Name="txtDatum" Width="120" VerticalAlignment="Center" IsReadOnly="True"
-                     Text="{Binding NovoDatum, Mode=OneWay}" />
+                    Text="{Binding NovoDatum, Mode=OneWay}" />
+
 
             <!-- Naziv dobavljača (ComboBox) -->
-            <Label Content="{x:Static res:Strings.Dobavljac}" VerticalAlignment="Center"/>
+            <Label x:Name="lblDobavljac" VerticalAlignment="Center"/>
             <ComboBox Name="cmbDobavljac" 
-                    Width="150" 
-                    VerticalAlignment="Center"
-                    ItemsSource="{Binding Dobavljaci}" 
-                    SelectedItem="{Binding OdabraniDobavljac, Mode=TwoWay}" />
-
+                Width="150" 
+                VerticalAlignment="Center"
+                ItemsSource="{Binding Dobavljaci}" 
+                SelectedItem="{Binding OdabraniDobavljac, Mode=TwoWay}" />
 
 
             <!-- Polje za unos JMB -->
-            <Label Content="{x:Static res:Strings.Menadzer}" VerticalAlignment="Center"/>
+            <Label x:Name="lblMenadzer" VerticalAlignment="Center"/>
             <TextBox Name="txtMenadzerJmb" Width="150" VerticalAlignment="Center" />
 
             <!-- Dugme za dodavanje -->
-            <Button Content="{x:Static res:Strings.Dodaj}" Width="100" VerticalAlignment="Center"  Margin="10,0,0,0"
-                    Click="DodajNarudzbu_Click" />  
+            <Button x:Name="btnDodaj" Content="{x:Static res:Strings.Dodaj}" Width="100" VerticalAlignment="Center" Margin="10,0,0,0"
+                Click="DodajNarudzbu_Click" />
+
         </StackPanel>
     </Grid>
 </UserControl>

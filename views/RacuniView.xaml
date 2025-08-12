@@ -13,26 +13,29 @@
             <!-- Filter -->
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                 <TextBox Width="150"
-                 Text="{Binding FilterJmb, UpdateSourceTrigger=PropertyChanged}"
-                 />
-                <Button Content="{x:Static res:Strings.PretraziPoJmb}" Command="{Binding PrimijeniFilterCommand}" Margin="5,0"/>
-                <Button Content="{x:Static res:Strings.OcistiFilter}" Command="{Binding OcistiFilterCommand}" Margin="5,0"/>
+             Text="{Binding FilterJmb, UpdateSourceTrigger=PropertyChanged}"
+             />
+                <Button x:Name="btnPretraziPoJmb" Content="{x:Static res:Strings.PretraziPoJmb}" Command="{Binding PrimijeniFilterCommand}" Margin="5,0"/>
+                <Button x:Name="btnOcistiFilter" Content="{x:Static res:Strings.OcistiFilter}" Command="{Binding OcistiFilterCommand}" Margin="5,0"/>
             </StackPanel>
 
+
             <!-- DataGrid -->
-            <DataGrid ItemsSource="{Binding Racuni}" AutoGenerateColumns="False" CanUserAddRows="False">
+            <DataGrid x:Name="dataGridRacuni" ItemsSource="{Binding Racuni}" AutoGenerateColumns="False" CanUserAddRows="False">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="{x:Static res:Strings.Datum}" Binding="{Binding Datum}" />
                     <DataGridTextColumn Header="{x:Static res:Strings.Trgovac}" Binding="{Binding ProdavacJmb}" />
                 </DataGrid.Columns>
             </DataGrid>
 
+
             <!-- Navigacija -->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
-                <Button Content="{x:Static res:Strings.Prethodna}" Command="{Binding PrethodnaStranicaCommand}" Margin="5"/>
+                <Button x:Name="btnPrethodna" Content="{x:Static res:Strings.Prethodna}" Command="{Binding PrethodnaStranicaCommand}" Margin="5"/>
                 <TextBlock Text="{Binding TrenutnaStranica}" VerticalAlignment="Center" FontWeight="Bold" Margin="5"/>
-                <Button Content="{x:Static res:Strings.Sledeca}" Command="{Binding SledecaStranicaCommand}" Margin="5"/>
+                <Button x:Name="btnSledeca" Content="{x:Static res:Strings.Sledeca}" Command="{Binding SledecaStranicaCommand}" Margin="5"/>
             </StackPanel>
+
         </StackPanel>
 
     </Grid>

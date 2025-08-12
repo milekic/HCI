@@ -23,6 +23,8 @@ namespace WpfMojaApp1.views
         {
             InitializeComponent();
             this.DataContext = new NarudzbaViewModel();
+
+            UpdateLanguage();
         }
 
         private void DodajNarudzbu_Click(object sender, RoutedEventArgs e)
@@ -34,5 +36,24 @@ namespace WpfMojaApp1.views
                 txtDatum.Text = DateTime.Now.ToString("yyyy-MM-dd");
             }
         }
+
+
+        public void UpdateLanguage()
+        {
+            var cols = dataGridNarudzbe.Columns;
+
+           
+            cols[0].Header = WpfMojaApp1.resources.Strings.Datum;
+            cols[1].Header = WpfMojaApp1.resources.Strings.Dobavljac;
+            cols[2].Header = WpfMojaApp1.resources.Strings.Menadzer;
+
+            lblDatum.Content = resources.Strings.Datum;
+            lblDobavljac.Content = resources.Strings.Dobavljac;
+            lblMenadzer.Content = resources.Strings.Menadzer;
+
+            btnDodaj.Content = resources.Strings.Dodaj;
+        }
+
+
     }
 }
