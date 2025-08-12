@@ -24,6 +24,9 @@ namespace WpfMojaApp1
         {
             InitializeComponent();
 
+            //pocetni prozor
+            MainContentControl.Content = new views.HomeView();
+
             //prijava
             var login = new LoginWindow();
             bool? rezultat = login.ShowDialog();

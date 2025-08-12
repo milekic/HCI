@@ -20,7 +20,7 @@
                 
             </Grid.ColumnDefinitions>
 
-            <!-- Meni dugmad, lijevo -->
+            <!-- Meni dugmad -->
             <StackPanel Orientation="Horizontal" Grid.Column="0" VerticalAlignment="Center" Margin="5">
                 <Button x:Name="buttonAktivniProizvodi"
                         Content="{x:Static res:Strings.AktivniProizvodi}"
@@ -35,24 +35,22 @@
                         Margin="5" 
                         Click="PrikaziNarudzbe" />
                 
-                <!-- Možeš dodati i ostala dugmad za meni -->
+                
             </StackPanel>
 
             <!-- Dugmad za jezik, desno -->
-            <StackPanel Orientation="Horizontal" Grid.Column="1" VerticalAlignment="Center" Margin="5">
-                <Button Content="Srp" Width="70" Margin="5,0" Click="ChangeToSerbian_Click" />
-                <Button Content="Eng" Width="70" Margin="5,0" Click="ChangeToEnglish_Click" />
-                <Button Content="{x:Static res:Strings.OdjaviSe}" Width="70" Margin="5,0" Click="OdjaviSe_Click" />
-                <!--
-                <Button Content="Light" Width="70" Margin="5,0" Click="SetLightTheme_Click" />
-                <Button Content="Dark" Width="70" Margin="5,0" Click="SetDarkTheme_Click" /> 
-                <Button Content="Blue" Width="70" Margin="5,0" Click="SetBlueTheme_Click" /> 
-                 -->
+            <StackPanel Orientation="Horizontal" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5,5,15,5">
+                <Button Content="Srp" MinWidth="70" Margin="5,0" Click="ChangeToSerbian_Click" />
+                <Button Content="Eng" MinWidth="70" Margin="5,0" Click="ChangeToEnglish_Click" />
+                <Button Content="{x:Static res:Strings.OdjaviSe}" MinWidth="70" Margin="5,0,10,0" Click="OdjaviSe_Click" />
+
             </StackPanel>
         </Grid>
 
         <!-- MJESTO ZA PRIKAZ SADRŽAJA -->
         <ContentControl x:Name="MainContentControl" Margin="10"/>
+
+        
     </DockPanel>
 
 
