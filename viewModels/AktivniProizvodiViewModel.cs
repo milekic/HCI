@@ -25,6 +25,10 @@ namespace WpfMojaApp1.viewModels
         private Proizvod _selectedProizvod;
         private Drvo _selectedDrvo;
 
+        public string TextUkloni => resources.Strings.Ukloni;
+        public string TextIzmijeniCijenu => resources.Strings.IzmijeniCijenu;
+
+
         // PAGINACIJA
         private int _pageSize = 10;
         private int _currentPage = 1;
@@ -129,5 +133,12 @@ namespace WpfMojaApp1.viewModels
             foreach (var p in proizvodiNaStranici)
                 Proizvodi.Add(p);
         }
+
+        public void UpdateLanguage()
+        {
+            OnPropertyChanged(nameof(TextUkloni));
+            OnPropertyChanged(nameof(TextIzmijeniCijenu));
+        }
     }
+
 }

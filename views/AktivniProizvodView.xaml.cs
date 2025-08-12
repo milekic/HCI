@@ -221,6 +221,39 @@ namespace WpfMojaApp1.views
             }
         }
 
+        public void UpdateLanguage()
+        {
+            colSifra.Header = resources.Strings.Sifra;
+            colNaziv.Header = resources.Strings.Naziv;
+            colVrstaDrveta.Header = resources.Strings.VrstaDrveta;
+            colCijena.Header = resources.Strings.Cijena;
+
+            var vm = DataContext as AktivniProizvodiViewModel;
+            vm?.UpdateLanguage();
+
+            btnPrethodna.Content = resources.Strings.Prethodna;
+            btnSledeca.Content = resources.Strings.Sledeca;
+
+            MaterialDesignThemes.Wpf.HintAssist.SetHint(
+              cmbVrstaProizvoda,
+              resources.Strings.VrstaProizvoda
+            );
+
+            MaterialDesignThemes.Wpf.HintAssist.SetHint(
+                cmbVrstaDrveta,
+                resources.Strings.VrstaDrveta
+            );
+
+            MaterialDesignThemes.Wpf.HintAssist.SetHint(
+                txtCijena,
+                resources.Strings.Cijena
+            );
+
+            btnDodajProizvod.Content = resources.Strings.DodajProizvod;
+
+
+        }
+
 
 
 

@@ -130,6 +130,19 @@ namespace WpfMojaApp1
         }
 
 
+        public void UpdateLanguage()
+        {
+            buttonAktivniProizvodi.Content = resources.Strings.AktivniProizvodi;
+            buttonPregledRacuna.Content = resources.Strings.PregledRacuna;
+            buttonNarudzbe.Content = resources.Strings.Narudzbe;
+
+            if (MainContentControl.Content is AktivniProizvodView aktivniProizvodView)
+            {
+                aktivniProizvodView.UpdateLanguage();
+            }
+
+            // ...i ostala dugmad i kontrole koje koriste resurse za tekst
+        }
 
 
 

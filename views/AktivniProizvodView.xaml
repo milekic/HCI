@@ -27,12 +27,7 @@
             <DataGrid.Columns>
                 
                 <!-- Šifra -->
-                <DataGridTemplateColumn>
-                    <DataGridTemplateColumn.HeaderTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{x:Static res:Strings.Sifra}" />
-                        </DataTemplate>
-                    </DataGridTemplateColumn.HeaderTemplate>
+                <DataGridTemplateColumn x:Name="colSifra" Header="{x:Static res:Strings.Sifra}">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding SifraProizvoda}" />
@@ -40,13 +35,11 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
+
+
+
                 <!-- Naziv -->
-                <DataGridTemplateColumn>
-                    <DataGridTemplateColumn.HeaderTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{x:Static res:Strings.Naziv}" />
-                        </DataTemplate>
-                    </DataGridTemplateColumn.HeaderTemplate>
+                <DataGridTemplateColumn x:Name="colNaziv" Header="{x:Static res:Strings.Naziv}">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding NazivProizvoda}" />
@@ -54,13 +47,9 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
+
                 <!-- Vrsta drveta -->
-                <DataGridTemplateColumn>
-                    <DataGridTemplateColumn.HeaderTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{x:Static res:Strings.VrstaDrveta}" />
-                        </DataTemplate>
-                    </DataGridTemplateColumn.HeaderTemplate>
+                <DataGridTemplateColumn x:Name="colVrstaDrveta" Header="{x:Static res:Strings.VrstaDrveta}">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding VrstaDrveta}" />
@@ -68,14 +57,10 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
+
                 <!--<DataGridTextColumn Header="Cijena" Binding="{Binding CijenaProizvoda}" /> -->
                 <!-- Cijena -->
-                <DataGridTemplateColumn>
-                    <DataGridTemplateColumn.HeaderTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{x:Static res:Strings.Cijena}" />
-                        </DataTemplate>
-                    </DataGridTemplateColumn.HeaderTemplate>
+                <DataGridTemplateColumn x:Name="colCijena" Header="{x:Static res:Strings.Cijena}">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding CijenaProizvoda}" />
@@ -83,18 +68,20 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
+
                 <!-- Dugme za uklanjanje -->
                 <DataGridTemplateColumn Header="">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <Button Content="{x:Static res:Strings.Ukloni}" 
+                                <Button Content="{Binding DataContext.TextUkloni, RelativeSource={RelativeSource AncestorType=UserControl}}"
                                     Click="UkloniProizvod_Click"
                                     Tag="{Binding}" />
-                                <Button Content="{x:Static res:Strings.IzmijeniCijenu}" 
+                                <Button Content="{Binding DataContext.TextIzmijeniCijenu, RelativeSource={RelativeSource AncestorType=UserControl}}"
                                      Click="IzmijeniCijenu_Click"
                                      Tag="{Binding}"
                                      Margin="5,0,0,0" />
+
                             </StackPanel>
 
                         </DataTemplate>
@@ -106,15 +93,14 @@
         </DataGrid>
         <!--Stranicna kontrola-->
         <StackPanel Grid.Row="1"
-            Orientation="Horizontal"
-            HorizontalAlignment="Right"
-            Margin="0,10,0,0">
-            <Button Content="{x:Static res:Strings.Prethodna}" Click="Prethodna_Click"/>
+         Orientation="Horizontal"
+         HorizontalAlignment="Right"
+         Margin="0,10,0,0">
+            <Button x:Name="btnPrethodna" Content="{x:Static res:Strings.Prethodna}" Click="Prethodna_Click"/>
             <TextBlock Text="{Binding CurrentPage}" Margin="10"/>
-            <Button Content="{x:Static res:Strings.Sledeca}" Click="Sledeca_Click"/>
-
-
+            <Button x:Name="btnSledeca" Content="{x:Static res:Strings.Sledeca}" Click="Sledeca_Click"/>
         </StackPanel>
+
 
 
         <!-- FORMA ZA DODAVANJE -->
@@ -156,7 +142,10 @@
                      />
 
          <!--   <Button Content="Dodaj proizvod" Click="DodajProizvod_Click" />  -->
-            <Button Content="{x:Static res:Strings.DodajProizvod}" Click="DodajProizvod_Click" />
+            <Button x:Name="btnDodajProizvod"
+                Content="{x:Static res:Strings.DodajProizvod}"
+                Click="DodajProizvod_Click" />
+
 
         </StackPanel>
     </Grid>
