@@ -20,7 +20,7 @@ Cilj projekta je pružiti intuitivno i responzivno korisničko okruženje za rad
 ---
 
 ## ✨ Opis rada
-Prilikom prijave na aplikaciju korisnik unosi svoj JMB i ime. Ako je korisnik "Menadžer" može koristiti sljedeće funkcionalnosti: "Pregleda aktivnih proizvoda", 
+Prilikom prijave na aplikaciju korisnik unosi svoj JMB i ime. Ako je korisnik "Menadžer" može koristiti sljedeće funkcionalnosti: "Pregled aktivnih proizvoda", 
 "Pregled računa" i "Pregled narudžbi".
 U sekciji "Aktivni proizvodi" može pregledati trenutno aktivne proizvode, ukloniti neki od proizvoda, izmijeniti cijenu ili dodati novi proizvod. Prilikom dodavanja 
 novog proizvoda unosi naziv vrste proizvoda, vrstu drveta i cijenu proizvoda. 
