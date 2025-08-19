@@ -40,7 +40,7 @@
                     Text="{Binding NovoDatum, Mode=OneWay}" />
 
 
-            <!-- Naziv dobavljača (ComboBox) -->
+            <!-- Naziv dobavljača  -->
             <Label x:Name="lblDobavljac" VerticalAlignment="Center"/>
             <ComboBox Name="cmbDobavljac" 
                 Width="150" 

@@ -12,9 +12,9 @@
       
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
-            <!-- Tabela zauzima samo onoliko koliko joj treba prostor -->
+           
             <RowDefinition Height="Auto" />
-            <!-- Forma zauzima koliko joj treba -->
+           
         </Grid.RowDefinitions>
 
         <!-- TABELA -->
@@ -58,7 +58,7 @@
                 </DataGridTemplateColumn>
 
 
-                <!--<DataGridTextColumn Header="Cijena" Binding="{Binding CijenaProizvoda}" /> -->
+                
                 <!-- Cijena -->
                 <DataGridTemplateColumn x:Name="colCijena" Header="{x:Static res:Strings.Cijena}">
                     <DataGridTemplateColumn.CellTemplate>
@@ -141,7 +141,7 @@
                       DataObject.Pasting="txtCijena_Pasting"
                      />
 
-         <!--   <Button Content="Dodaj proizvod" Click="DodajProizvod_Click" />  -->
+         
             <Button x:Name="btnDodajProizvod"
                 Content="{x:Static res:Strings.DodajProizvod}"
                 Click="DodajProizvod_Click" />

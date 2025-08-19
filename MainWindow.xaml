@@ -38,7 +38,7 @@
                 
             </StackPanel>
 
-            <!-- Dugmad za jezik, desno -->
+            <!-- Dugmad za jezik i odjavu -->
             <StackPanel Orientation="Horizontal" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5,5,15,5">
                 <Button Content="Srp" MinWidth="70" Margin="5,0" Click="ChangeToSerbian_Click" />
                 <Button Content="Eng" MinWidth="70" Margin="5,0" Click="ChangeToEnglish_Click" />

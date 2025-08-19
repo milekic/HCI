@@ -19,7 +19,7 @@ namespace WpfMojaApp1
     public partial class MainWindow : Window
     {
         
-        //konstruktor
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -47,7 +47,7 @@ namespace WpfMojaApp1
             }
             else
             {
-                // Ako korisnik otkaže prijavu ili nije uspješan login, zatvori aplikaciju
+                
                 Application.Current.Shutdown();
             }
         }
@@ -119,15 +119,15 @@ namespace WpfMojaApp1
                     PrikaziSamoPregledRacuna();
                 }
 
-                // Očisti sadržaj (po želji)
+                
                 MainContentControl.Content = null;
 
-                // Prikaži glavni prozor opet
+                
                 this.Show();
             }
             else
             {
-                // Ako korisnik otkaže prijavu - zatvori aplikaciju
+                
                 Application.Current.Shutdown();
             }
         }
@@ -155,7 +155,7 @@ namespace WpfMojaApp1
             }
 
 
-            // ...i ostala dugmad i kontrole koje koriste resurse za tekst
+            
         }
 
 

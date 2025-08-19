@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows;
 using WpfMojaApp1.models;
-using WpfMojaApp1.services;  // Pretpostavljam da imaš AuthService u services namespace
+using WpfMojaApp1.services;  
 
 namespace WpfMojaApp1
 {
@@ -9,7 +9,7 @@ namespace WpfMojaApp1
     {
         private AuthService authService = new AuthService();
 
-        // Ovaj property će biti pročitan nakon uspešne prijave
+        
         public TipKorisnika TipKorisnika { get; private set; } = TipKorisnika.Nema;
 
         public LoginWindow()

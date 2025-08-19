@@ -15,9 +15,7 @@ using System.Windows.Shapes;
 
 namespace WpfMojaApp1.views
 {
-    /// <summary>
-    /// Interaction logic for HomeView.xaml
-    /// </summary>
+    
     public partial class HomeView : UserControl
     {
         public HomeView()

@@ -45,7 +45,7 @@ namespace WpfMojaApp1.views
                 cijena = parsedCijena;
             }
 
-            // 4. Provjera i prikaz podataka
+            
             if (izabraniProizvodForma != null && izabranaVrstaDrveta != null && cijena != null)
             {
                 MessageBox.Show(
@@ -57,7 +57,7 @@ namespace WpfMojaApp1.views
                 try
                 {
                     ProizvodOdDrvetaService.DodajProizvodOdDrveta(sifra, izabranaVrstaDrveta, cijena.Value);
-                   //kad se dodan novi proizvod, azurira se tabela tako sto ucita opet sve iz baze.
+                   
                     var vm = DataContext as AktivniProizvodiViewModel;
                     vm?.UcitajProizvode();
                     
@@ -71,7 +71,7 @@ namespace WpfMojaApp1.views
                 }
                 catch (MySql.Data.MySqlClient.MySqlException ex)
                 {
-                    if (ex.Number == 1062) // 1062 = Duplicate entry
+                    if (ex.Number == 1062) 
                     {
                         MessageBox.Show("Greška: Proizvod sa istom šifrom i vrstom drveta već postoji u bazi!", "Duplikat", MessageBoxButton.OK, MessageBoxImage.Warning);
                     }
@@ -189,7 +189,7 @@ namespace WpfMojaApp1.views
             if (string.IsNullOrWhiteSpace(input))
                 return;
 
-            // Pokušaj parsiranja unosa
+            
             if (!decimal.TryParse(input.Replace(',', '.'), out decimal novaCijena))
             {
                 MessageBox.Show("Unesena cijena nije validan broj!", "Greška", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -208,7 +208,7 @@ namespace WpfMojaApp1.views
                 {
                     ProizvodOdDrvetaService.IzmijeniCijenu(proizvod.SifraProizvoda, proizvod.VrstaDrveta, novaCijena);
 
-                    // Osvježi prikaz
+                    
                     var vm = DataContext as AktivniProizvodiViewModel;
                     vm?.UcitajProizvode();
 
